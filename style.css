@@ -7,13 +7,14 @@
   --blanc : #eee9da;
 
   --vert-ombre : #003333cc;
-  --violet-ombre : ;
+  --violet-ombre : #460d86;;
   --jaune-ombre : ;
-  --noir-ombre : ;
+  --noir-ombre : black;
   --blanc-ombre : #a98d72cc;
-  --vert-darkmode : #006699; /*à choisir*/
-  --violet-darkmode : #cc9933; /*à choisir*/
-  --jaune-darkmode : white; /*à choisir*/
+
+  --vert-darkmode : #336666;
+  --violet-darkmode : #9898e0;
+  --jaune-darkmode : #ffcc99;
 
   --poppins : "poppins", sans-serif;
   --bicyclette : "bicyclette", sans-serif;
@@ -23,6 +24,7 @@
   box-sizing : border-box; /*prendre en compte la bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
   padding : 0; /*pas de marge intérieure*/
   margin : 0; /*pas de marge extérieure*/
+  scroll-behavior : smooth;
 }
 body {
   background-color : var(--blanc); /*couleur de fond de page sans modification*/
@@ -52,7 +54,7 @@ a.visited, a.hover, a.link, a {
   transition: all 0.5s ease-out;
 }
 body.darkmode .nav {
-  border-bottom-color : var(--vert-darkmode);
+  border-bottom-color : white;
   background-color : var(--noir);
   transition: all 0.5s ease-out;
 }
@@ -80,7 +82,7 @@ body.darkmode .nav_hamburger i {
   top : 0;
   left : -100%;
   width : 80%;
-  height : 3rem;
+  height : 100%;
   transition : all 0.5s ease-out;
 }
 .nav_interieur.active {
@@ -114,7 +116,7 @@ body.darkmode .btn{
   transition: all 0.5s ease-out;
 }
 .btn__indicator{
-  background-color : var(--vert);
+  background-color : var(--jaune);
   width : 4rem;
   height : 1rem;
   border-radius : 1rem;
@@ -122,12 +124,13 @@ body.darkmode .btn{
   top : 0;
   right : 0;
   box-shadow : 0 0.5rem 2.5rem rgba(0,0,0,0.2);
-  border : 0.1rem solid black;
+  border : 0.1rem solid var(--noir-ombre);
   transition: all 0.5s ease-out;
 }
 body.darkmode .btn__indicator{
   transform: translateX(-2rem);
   background-color: var(--vert-darkmode);
+  border-color : white;
   box-shadow: 0 0.5rem 2.5rem rgba(0,0,0, .3);
   transition: all 0.5s ease-out;
 }
@@ -140,12 +143,12 @@ body.darkmode .btn__indicator{
 }
 .btn__icon-container span {
   font : 0.5rem var(--bicyclette);
-  color : var(--blanc);
+  color : var(--noir);
   text-transform : uppercase;
   transition: all 0.5s ease-out;
 }
 body.darkmode .btn__icon-container span {
-  color : var(--noir);
+  color : var(--blanc);
   transition: all 0.5s ease-out;
 }
 
@@ -173,6 +176,7 @@ body.darkmode .header {
 .header_bloc h1 {
   width : 100%;
   font : 1.5rem var(--bicyclette);
+  line-height : 2.5rem;
   text-transform : uppercase;
   color : var(--noir);
   text-align : center;
@@ -180,7 +184,7 @@ body.darkmode .header {
   transition: all 0.5s ease-out;
 }
 body.darkmode .header_bloc h1 {
-  color : var(--vert-darkmode);
+  color : white;
   transition: all 0.5s ease-out;
 }
 .header_bloc h1 span {
@@ -192,17 +196,22 @@ body.darkmode .header_bloc h1 {
   border-top-left-radius : 1rem;
   border-bottom-right-radius : 1rem;
   box-shadow : 0 0.3rem 0.3rem var(--blanc-ombre);
-  border : 0.1rem solid black;
+  border : 0.1rem solid var(--noir-ombre);
 }
 body.darkmode .header_bloc h1 span {
-  background-color : var(--violet-darkmode);
-  color : var(--noir);
+  background-color : var(--vert-darkmode);
+  color : white;
+  border-color : white;
+  box-shadow : 0 0.3rem 0.3rem var(--noir-ombre);
   transition: all 0.5s ease-out;
 }
 .bloc_chevron {
   position : relative;
   top : 45vh;
   width : 100%;
+}
+.bloc_chevron a {
+  transition: all 0.5s ease-out;
 }
 .chevron1 {
   width : 100%;
@@ -213,7 +222,8 @@ body.darkmode .header_bloc h1 span {
   text-shadow: 0 0.3rem 0.3rem var(--blanc-ombre);
 }
 body.darkmode .chevron1 {
-  color : var(--violet-darkmode);
+  color : var(--vert-darkmode);
+  text-shadow: 0 0.3rem 0.3rem var(--noir-ombre);
   transition: all 0.5s ease-out;
 }
 .chevron2 {
@@ -226,7 +236,8 @@ body.darkmode .chevron1 {
   transition: all 0.5s ease-out;
 }
 body.darkmode .chevron2 {
-  color : var(--vert-darkmode);
+  color : var(--violet-darkmode);
+  text-shadow: 0 0.3rem 0.3rem var(--noir-ombre);
   transition: all 0.5s ease-out;
 }
 
@@ -249,19 +260,22 @@ main {
   margin : auto;
   display : flex;
   flex-wrap : wrap;
-  gap : 3rem;
+  gap : 3rem 0rem;
 }
 .section1 h2 {
-  width : 89%;
+  width : 90%;
   margin : auto;
-  font : 1.9rem var(--bicyclette);
+  font : 2.5rem var(--bicyclette);
   color : var(--vert);
   text-transform : uppercase;
   text-align : center;
   transition: all 0.5s ease-out;
+  display : flex;
+  flex-direction : column;
+  gap : 0.5rem;
 }
 body.darkmode .section1 h2 {
-  color : var(--vert-darkmode);
+  color : var(--violet-darkmode);
   transition: all 0.5s ease-out;
 }
 .section1 h2 span {
@@ -272,19 +286,20 @@ body.darkmode .section1 h2 {
   color : var(--blanc);
   font-weight : bold;
   box-shadow : 0 0.3rem 0.3rem var(--blanc-ombre);
-  border : 0.1rem solid black;
+  border : 0.1rem solid var(--noir-ombre);
   transition: all 0.5s ease-out;
 }
 body.darkmode .section1 h2 span {
-  background-color : var(--violet-darkmode);
-  color : var(--noir);
+  background-color : var(--vert-darkmode);
+  color : white;
   transition: all 0.5s ease-out;
-  box-shadow : 0 0.5rem 1rem black;
+  box-shadow : 0 0.5rem 1rem var(--noir-ombre);
+  border-color : white;
 }
 .section1 h3 {
-  width : 80%;
+  width : 90%;
   margin : auto;
-  font : 1.5rem var(--zain);
+  font : 2rem var(--zain);
   line-height : 1.5rem;
   text-align : center;
   color : var(--violet);
@@ -294,9 +309,9 @@ body.darkmode .section1 h2 span {
   margin-top : -1rem;
 }
 body.darkmode .section1 h3 {
-  color : var(--violet-darkmode);
-  border-left-color : var(--violet-darkmode);
-  border-right-color : var(--violet-darkmode);
+  color : var(--vert-darkmode);
+  border-left-color : var(--vert-darkmode);
+  border-right-color : var(--vert-darkmode);
   transition: all 0.5s ease-out;
 }
 .section1 article {
@@ -306,19 +321,21 @@ body.darkmode .section1 h3 {
   padding : 1rem;
   box-shadow : 0 0.3rem 0.3rem var(--blanc-ombre);
   background-color : var(--vert);
-  border : 0.1rem solid black;
+  border : 0.1rem solid var(--noir-ombre);
 }
 body.darkmode .section1 article {
-  box-shadow : 0 0.5rem 0.5rem black;
-  background-color : var(--vert-darkmode);
+  box-shadow : 0 0.5rem 0.5rem var(--noir-ombre);
+  background-color : var(--violet-darkmode);
+  border-color : white;
   transition: all 0.5s ease-out;
 }
 .section1 div {
+  min-height : 25rem;
   padding-bottom : 2rem;
   border : 0.5rem solid var(--blanc);
   display : flex;
   flex-wrap : wrap;
-  align-content : start;
+  align-content : space-between;
   align-items : center;
   gap : 2rem;
   border-radius : 2rem;
@@ -327,7 +344,7 @@ body.darkmode .section1 article {
 }
 body.darkmode .section1 div {
   border-color : var(--noir);
-  background-color : var(--vert-darkmode);
+  background-color : var(--violet-darkmode);
   transition: all 0.5s ease-out;
 }
 .section1 i {
@@ -343,12 +360,14 @@ body.darkmode .section1 div {
   transition: all 0.5s ease-out;
 }
 body.darkmode .section1 i {
-  color : var(--violet-darkmode);
+  color : var(--jaune-darkmode);
   background-color : var(--noir);
+  box-shadow : 0 0.3rem 0.3rem var(--violet-ombre);
   transition: all 0.5s ease-out;
 }
 .section1 h4 {
-  width : 100%;
+  width : 90%;
+  margin : auto;
   font : 1.5rem var(--bicyclette);
   text-transform : uppercase;
   text-align : center;
@@ -362,7 +381,7 @@ body.darkmode .section1 h4 {
 .section1 p {
   width : 80%;
   margin : auto;
-  font : 0.5rem var(--poppins);
+  font : 1rem var(--poppins);
   color : var(--blanc);
   text-align : left;
   transition: all 0.5s ease-out;
@@ -384,13 +403,14 @@ body.darkmode .section1 p {
   border-top-left-radius : 1rem;
   border-bottom-right-radius : 1rem;
   box-shadow : 0 0.3rem 0.3rem var(--vert-ombre);
-  border : 0.1rem solid black;
+  border : 0.1rem solid var(--noir-ombre);
   transition: all 0.5s ease-out;
 }
 body.darkmode .section1 a {
-  background-color : var(--violet-darkmode);
+  background-color : var(--jaune-darkmode);
   color : var(--noir);
-  box-shadow : 0 0.5rem 1rem darkslategray;
+  box-shadow : 0 0.5rem 1rem var(--violet-ombre);
+  border-color : white;
   transition: all 0.5s ease-out;
 }
 
@@ -408,25 +428,18 @@ body.darkmode .section1 a {
   transition: all 0.5s ease-out;
 }
 body.darkmode .bloc_titre {
-  background-color : var(--vert-darkmode);
+  background-color : var(--violet-darkmode);
   transition: all 0.5s ease-out;
 }
 .section2 h2 {
   width : 90%;
   margin : auto;
-  margin-top : -2rem;
-  font : 2rem var(--bicyclette);
+  margin-top : -4rem;
+  font : 2.5rem var(--bicyclette);
   line-height : 3rem;
   color : var(--blanc);
   text-transform : uppercase;
   text-align : center;
-  transition: all 0.5s ease-out;
-}
-body.darkmode .section2 h2 {
-  color : var(--noir);
-  transition: all 0.5s ease-out;
-}
-.section2 h2 span {
   background-color : var(--blanc);
   border-bottom-right-radius : 1rem;
   border-bottom-left-radius : 1rem;
@@ -434,19 +447,22 @@ body.darkmode .section2 h2 {
   color : var(--violet);
   font-weight : bold;
   box-shadow : 0 0.3rem 0.3rem var(--vert-ombre);
-  border : 0.1rem solid black;
+  border : 0.1rem solid var(--noir-ombre);
   transition: all 0.5s ease-out;
+
 }
-body.darkmode .section2 h2 span {
+body.darkmode .section2 h2 {
   background-color : var(--noir);
-  color : var(--violet-darkmode);
+  color : var(--vert-darkmode);
+  box-shadow : 0 0.3rem 0.3rem var(--violet-ombre);
+  border-color : white;
   transition: all 0.5s ease-out;
 }
 .section2 h3 {
   width : 90%;
   margin : auto;
   margin-top : 3rem;
-  font : 1.5rem var(--zain);
+  font : 2rem var(--zain);
   line-height : 1.5rem;
   text-align : center;
   color : var(--blanc);
@@ -472,46 +488,49 @@ body.darkmode .section2 h3 {
   background-position : 55% 50%;
 }
 .section2 p {
-  width : 85%;
+  width : 80%;
   margin : auto;
   margin-top : -15rem;
   background-color : white;
   padding : 2rem;
-  font : 0.5rem var(--poppins);
+  font : 1rem var(--poppins);
   color : var(--vert);
   box-shadow : 0 0.3rem 0.3rem var(--blanc-ombre);
   text-align : left;
   border-radius : 2rem;
+  border : 0.1rem solid var(--noir-ombre);
   transition: all 0.5s ease-out;
 }
 body.darkmode .section2 p {
-  background-color : black;
-  color : var(--vert-darkmode);
-  box-shadow : 0 1rem 1rem black;
+  background-color : var(--noir);
+  color : var(--violet-darkmode);
+  box-shadow : 0 0.3rem 0.3rem var(--noir-ombre);
+  border-color : white;
   transition: all 0.5s ease-out;
 }
 .section2 a {
   width : 90%;
   margin : auto;
   margin-top : 3rem;
-  background-color : var(--violet);
+  background-color : var(--jaune);
   font : 1rem var(--bicyclette);
   text-transform : uppercase;
-  color : var(--blanc);
+  color : black;
   font-weight : bold;
   text-align : center;
   padding : 0.5rem;
   border-top-left-radius : 1rem;
   border-bottom-right-radius : 1rem;
   box-shadow : 0 0.3rem 0.3rem var(--blanc-ombre);
-  border : 0.1rem solid black;
+  border : 0.1rem solid var(--noir-ombre);
   transition: all 0.5s ease-out;
 }
 body.darkmode .section2 a {
-  background-color : var(--vert-darkmode);
-  color : var(--noir);
+  background-color : var(--jaune-darkmode);
+  color : var(--noir-ombre);
   transition: all 0.5s ease-out;
-  box-shadow : 0 0.5rem 1rem black;
+  box-shadow : 0 0.5rem 1rem var(--noir-ombre);
+  border-color : white;
 }
 
 /***** SECTION 3 *****/
@@ -523,16 +542,19 @@ body.darkmode .section2 a {
   gap : 3rem;
 }
 .section3 h2 {
-  width : 89%;
+  width : 90%;
   margin : auto;
-  font : 2rem var(--bicyclette);
+  font : 2.5rem var(--bicyclette);
   color : var(--vert);
   text-transform : uppercase;
   text-align : center;
   transition: all 0.5s ease-out;
+  display : flex;
+  flex-direction : column;
+  gap : 0.5rem;
 }
 body.darkmode .section3 h2 {
-  color : var(--vert-darkmode);
+  color : var(--violet-darkmode);
   transition: all 0.5s ease-out;
 }
 .section3 h2 span {
@@ -543,19 +565,20 @@ body.darkmode .section3 h2 {
   color : var(--blanc);
   font-weight : bold;
   box-shadow : 0 0.3rem 0.3rem var(--blanc-ombre);
-  border : 0.1rem solid black;
+  border : 0.1rem solid var(--noir-ombre);
   transition: all 0.5s ease-out;
 }
 body.darkmode .section3 h2 span {
-  background-color : var(--violet-darkmode);
-  color : var(--noir);
-  box-shadow : 0 0.5rem 1rem black;
+  background-color : var(--vert-darkmode);
+  color : white;
+  box-shadow : 0 0.3rem 0.3rem var(--noir-ombre);
+  border-color : white;
   transition: all 0.5s ease-out;
 }
 .section3 h3 {
   width : 80%;
   margin : auto;
-  font : 1.5rem var(--zain);
+  font : 2rem var(--zain);
   line-height : 1.5rem;
   text-align : center;
   color : var(--violet);
@@ -565,8 +588,8 @@ body.darkmode .section3 h2 span {
   margin-top : -2rem;
 }
 body.darkmode .section3 h3 {
-  color : var(--violet-darkmode);
-  border-color : var(--violet-darkmode);
+  color : var(--vert-darkmode);
+  border-color : var(--vert-darkmode);
   transition: all 0.5s ease-out;
 }
 .container{
@@ -597,9 +620,9 @@ body.darkmode .section3 h3 {
     transition: all 0.5s ease-out;
 }
 body.darkmode .card {
-  box-shadow : 0 1rem 2rem black;
+  box-shadow : 0 0.3rem 0.3rem var(--noir-ombre);
   background-color : var(--noir);
-  border-color : var(--vert-darkmode);
+  border-color : var(--violet-darkmode);
   transition: all 0.5s ease-out;
 }
 .card-thumb{
@@ -622,13 +645,13 @@ body.darkmode .card {
     padding: 0.1rem 1.5rem;
     background-color : var(--jaune);
     text-transform : uppercase;
-    font : 1.2rem var(--bicyclette);
+    font : 1.5rem var(--bicyclette);
     color : var(--violet);
     transition: all 0.5s ease-out;
 }
 body.darkmode .client-name {
-  background-color : var(--vert-darkmode);
-  color : var(--noir);
+  background-color : var(--jaune-darkmode);
+  color : var(--vert-darkmode);
   transition: all 0.5s ease-out;
 }
 .card-body{
@@ -636,15 +659,17 @@ body.darkmode .client-name {
     height : 10rem;
     position : relative;
     overflow-y : scroll;
+    scrollbar-color: var(--vert) var(--blanc);
+    padding-right : 1rem;
 }
 .card-body p{
-    font : 0.5rem var(--poppins);
+    font : 1rem var(--poppins);
     color : var(--vert);
     text-align : justify;
     transition: all 0.5s ease-out;
 }
 body.darkmode .card-body p {
-  color : var(--vert-darkmode);
+  color : var(--violet-darkmode);
   transition: all 0.5s ease-out;
 }
 .rating {
@@ -660,7 +685,8 @@ body.darkmode .card-body p {
   text-shadow : 0 0.3rem 0.3rem var(--blanc-ombre);
 }
 body.darkmode .rating {
-  color : var(--violet-darkmode);
+  color : var(--vert-darkmode);
+  text-shadow : 0 0.3rem 0.3rem var(--noir-ombre);
   transition: all 0.5s ease-out;
 }
 .indicators{
@@ -682,21 +708,22 @@ body.darkmode .rating {
   transition : 0.5s;
   transition: all 0.5s ease-out;
   box-shadow : 0 0.3rem 0.3rem var(--blanc-ombre);
-  border : 0.1rem solid black;
+  border : 0.1rem solid var(--noir-ombre);
 }
 body.darkmode .indicators button {
-  background-color : black;
+  background-color : var(--noir);
+  box-shadow : 0 0.3rem 0.3rem var(--noir-ombre);
+  border-color : white;
   transition: all 0.5s ease-out;
 }
 button.active{
   width : 5rem;
   border-radius : 50px;
   background-color : var(--vert);
-  box-shadow : 0 0.3rem 0.3rem var(--blanc-ombre);
   transition: all 0.5s ease-out;
 }
 body.darkmode button.active {
-  background-color : var(--vert-darkmode);
+  background-color : var(--violet-darkmode);
   transition: all 0.5s ease-out;
 }
 
@@ -709,24 +736,27 @@ body.darkmode button.active {
   gap : 3rem;
 }
 .section4 h2 {
-  width : 89%;
+  width : 90%;
   margin : auto;
-  font : 2rem var(--bicyclette);
+  font : 2.5rem var(--bicyclette);
   line-height : 3rem;
   color : var(--vert);
   text-transform : uppercase;
   text-align : center;
   transition: all 0.5s ease-out;
+  display : flex;
+  flex-direction : column;
+  gap : 0.5rem;
 }
 body.darkmode .section4 h2 {
-  color : var(--vert-darkmode);
+  color : var(--violet-darkmode);
   transition: all 0.5s ease-out;
 }
 .section4 h2 span {
   background-color : var(--violet);
   border-top-left-radius : 1rem;
   border-bottom-right-radius : 1rem;
-  border : 0.1rem solid black;
+  border : 0.1rem solid var(--noir-ombre);
   padding : 0 0.5rem;
   color : var(--blanc);
   font-weight : bold;
@@ -734,15 +764,16 @@ body.darkmode .section4 h2 {
   transition: all 0.5s ease-out;
 }
 body.darkmode .section4 h2 span {
-  background-color : var(--violet-darkmode);
-  color : var(--noir);
-  box-shadow : 0 0.5rem 1rem black;
+  background-color : var(--vert-darkmode);
+  color : white;
+  box-shadow : 0 0.3rem 0.3rem var(--noir-ombre);
+  border-color : white;
   transition: all 0.5s ease-out;
 }
 .section4 h3 {
   width : 80%;
   margin : auto;
-  font : 1.5rem var(--zain);
+  font : 2rem var(--zain);
   line-height : 1.5rem;
   text-align : center;
   color : var(--violet);
@@ -752,8 +783,8 @@ body.darkmode .section4 h2 span {
   margin-top : -1rem;
 }
 body.darkmode .section4 h3 {
-  color : var(--violet-darkmode);
-  border-color : var(--violet-darkmode);
+  color : var(--vert-darkmode);
+  border-color : var(--vert-darkmode);
   transition: all 0.5s ease-out;
 }
 .faq {
@@ -767,16 +798,14 @@ body.darkmode .section4 h3 {
   width : 100%;
   padding : 1rem;
   background-color : var(--blanc);
-  border : 0.1rem solid black;
+  border : 0.1rem solid var(--noir-ombre);
   box-shadow : 0 0.3rem 0.3em var(--blanc-ombre);
   transition: all 0.5s ease-out;
 }
 body.darkmode .faq-item {
   background-color : var(--noir);
-  transition: all 0.5s ease-out;
-}
-body.darkmode .faq-item {
-  box-shadow : 0 0.5rem 1rem black;
+  border-color : white;
+  box-shadow : 0 0.3rem 0.3rem var(--noir-ombre);
   transition: all 0.5s ease-out;
 }
 .faq-question {
@@ -785,18 +814,18 @@ body.darkmode .faq-item {
   justify-content : space-between;
   align-items : center;
   gap : 0.5rem;
-  font : 1.3rem var(--zain);
+  font : 1.5rem var(--zain);
   color : var(--vert);
   transition: all 0.5s ease-out;
 }
 body.darkmode .faq-question {
-  color : var(--vert-darkmode);
+  color : var(--violet-darkmode);
   transition: all 0.5s ease-out;
 }
 .faq-answer {
   display: none;
   margin-top: 0.5rem;
-  font : 0.5rem var(--poppins);
+  font : 1rem var(--poppins);
   color : var(--noir);
   transition: all 0.5s ease-out;
 }
@@ -816,14 +845,15 @@ body.darkmode .faq-answer {
   padding : 0.5rem;
   border-top-left-radius : 1rem;
   border-bottom-right-radius : 1rem;
-  border : 0.1rem solid black;
+  border : 0.1rem solid var(--noir-ombre);
   box-shadow : 0 0.3rem 0.3rem var(--blanc-ombre);
   transition: all 0.5s ease-out;
 }
 body.darkmode .section4 a {
-  background-color : var(--vert-darkmode);
+  background-color : var(--jaune-darkmode);
   color : var(--noir);
-  box-shadow : 0 0.5rem 1rem black;
+  border-color : white;
+  box-shadow : 0 0.3rem 0.3rem var(--noir-ombre);
   transition: all 0.5s ease-out;
 }
 
@@ -842,7 +872,7 @@ body.darkmode .section4 a {
   transition: all 0.5s ease-out;
 }
 body.darkmode .footer {
-  background-color : var(--vert-darkmode);
+  background-color : var(--violet-darkmode);
   transition: all 0.5s ease-out;
 }
 .footer_logo {
@@ -860,29 +890,34 @@ body.darkmode .footer {
   align-content : center; /*centrer les blocs à l'intérieur de façon horizontale*/
   align-items : center; /*centrer les blocs à l'intérieur de façon verticale*/
   margin : auto; /*les marges extérieures sont automatiques*/
-  border : 0.1rem solid black;
+  border : 0.1rem solid var(--noir);
+  box-shadow : 0 0.3rem 0.3rem var(--vert-ombre);
   padding : 1rem 0rem;
+}
+body.darkmode .footer_reseaux {
+  border-color : white;
+  box-shadow : 0 0.3rem 0.3rem var(--violet-ombre);
 }
 .footer_reseaux a {
   font-size : 1.5rem; /*le lien fait 1.5rem d'hauteur*/
-  color : var(--jaune); /*le lien est de la couleur de la variable*/
+  color : white; /*le lien est de la couleur de la variable*/
   transition: all 0.5s ease-out;
 }
 body.darkmode .footer_reseaux a {
-  color : var(--violet-darkmode);
+  color : black;
   transition: all 0.5s ease-out;
 }
 .footer_reseaux a:last-child {
-  color : var(--blanc); /*le dernier lien est de la couleur de la variable*/
+  color : var(--jaune); /*le dernier lien est de la couleur de la variable*/
   transition: all 0.5s ease-out;
 }
 body.darkmode .footer_reseaux a:last-child {
-  color : var(--noir);
+  color : var(--jaune-darkmode);
   transition: all 0.5s ease-out;
 }
 .mentions_legales {
   width : 100%; /*fait 100% de la largeur disponible*/
-  font : 0.5rem var(--poppins); /*le texte fait 0.5rem d'hauteur et est de la police de la variable*/
+  font : 1rem var(--poppins); /*le texte fait 0.5rem d'hauteur et est de la police de la variable*/
   color : var(--blanc); /*le texte est de la couleur de la variable*/
   text-align : center; /*le texte est centré*/
   transition: all 0.5s ease-out;
@@ -898,4 +933,45 @@ body.darkmode .mentions_legales {
 body.darkmode .mentions_legales a {
   color : var(--noir);
   transition: all 0.5s ease-out;
+}
+
+/* responsive tablette : 768px */
+@media screen and (min-width:768px) {
+.nav_hamburger i {font-size : 3rem;}
+.btn{width : 7rem; height : 2rem;}
+.btn__indicator{width : 5rem; height : 2rem;}
+.section1 article {width : 45%;}
+.section2 a {width : 50%;}
+.container{width : 80%; margin : auto;}
+.faq {width : 80%;}
+.section4 a {width : 50%;}
+}
+
+/* responsive desktop : 1024px */
+@media screen and (min-width: 1024px) {
+.nav_hamburger i {cursor : pointer;}
+.header_bloc {width : 80%; top : 20vh;}
+.bloc_chevron {top : 35vh;}
+.section1 {width : 80%;}
+.section1 article {width : 32%;}
+.section1 div {min-height : 35rem;}
+.section1 a:hover {background-color : var(--violet); color : var(--jaune);}
+.section2 h2 {width : 80%;}
+.section2 p, .section2 h3 {width : 60%;}
+.section2 a:hover {background-color : var(--violet); color : var(--blanc);}
+.section3, .section3 h3 {width : 80%;}
+.container{width : 80%;}
+.wrapper{width : 500%;}
+.section4 {width : 80%;}
+.faq-question {cursor : pointer;}
+.section4 a:hover {background-color : var(--vert); color : var(--blanc);}
+.footer {gap : 0; justify-content : center;}
+.footer_logo {width : 25%; padding-left : 5%;}
+.footer_reseaux {width : 30%;}
+.mentions_legales {width : 25%; padding-right : 5%;}
+.mentions_legales a:hover {font-weight : bold;}
+.footer_reseaux a:hover {color : black;}
+body.darkmode .footer_reseaux a:hover {color : white;}
+.footer_reseaux a:last-child:hover {color : var(--violet);}
+body.darkmode .footer_reseaux a:last-child:hover {color : var(--vert);}
 }
