@@ -22,7 +22,7 @@ function load(){
     icon.textContent = "light";
   } else if( darkmode == 'true'){
     body.classList.add('darkmode');
-    img_nav.src = "images/logo/entier/logo-vert.png";
+    img_nav.src = "images/logo/entier/logo-violet.png";
     icon.textContent = "dark";
   } else if(darkmode == 'false'){
     icon.textContent = "light";
@@ -36,7 +36,7 @@ btn.addEventListener('click', () => {
   store(body.classList.contains('darkmode'));
 
   if(body.classList.contains('darkmode')){
-    img_nav.src = "images/logo/entier/logo-vert.png";
+    img_nav.src = "images/logo/entier/logo-violet.png";
     icon.textContent = "dark";
   }else{
     img_nav.src = "images/logo/entier/logo-vert.png";
